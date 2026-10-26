@@ -1,0 +1,451 @@
+/* Estilos específicos de vistas - Fuerza PWA */
+
+/* ==========================================================
+   VISTA: ENTRENAR (WORKOUT)
+   ========================================================== */
+.workout-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 16px;
+  text-align: center;
+  gap: 16px;
+}
+
+.workout-empty-icon {
+  width: 72px;
+  height: 72px;
+  color: var(--accent-primary);
+  opacity: 0.85;
+}
+
+.session-header-card {
+  background: linear-gradient(135deg, var(--bg-surface-1), #151a24);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.session-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.session-time-badge {
+  font-size: 0.8rem;
+  color: var(--accent-primary);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.session-actions-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+/* Tarjeta de ejercicio en entrenamiento */
+.exercise-card {
+  background-color: var(--bg-surface-1);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 14px;
+  margin-bottom: 16px;
+}
+
+.exercise-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.exercise-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.25;
+}
+
+.exercise-badges {
+  display: flex;
+  gap: 6px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background-color: var(--bg-surface-2);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  text-transform: capitalize;
+}
+
+.badge.primary-muscle {
+  background-color: rgba(0, 230, 118, 0.12);
+  color: var(--accent-primary);
+  border-color: rgba(0, 230, 118, 0.25);
+}
+
+/* Nota persistente de máquina / configuración */
+.persistent-note-box {
+  background-color: rgba(255, 179, 0, 0.08);
+  border-left: 3px solid var(--accent-warning);
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  margin: 8px 0;
+  font-size: 0.8rem;
+  color: #ffe082;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.persistent-note-box input {
+  background: transparent;
+  border: none;
+  color: #ffe082;
+  font-size: 0.8rem;
+  width: 100%;
+  outline: none;
+}
+
+/* Caja de sugerencia de Doble Progresión */
+.progression-banner {
+  background: linear-gradient(90deg, rgba(0, 229, 255, 0.1), rgba(0, 230, 118, 0.1));
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  border-radius: var(--radius-md);
+  padding: 8px 12px;
+  margin: 10px 0;
+  font-size: 0.82rem;
+  line-height: 1.35;
+  color: #e0f7fa;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.progression-banner strong {
+  color: var(--accent-secondary);
+}
+
+/* ==========================================================
+   MODO DE EJECUCIÓN ENFOCADO (FULLSCREEN)
+   ========================================================== */
+.focused-mode-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #07090c;
+  z-index: 150;
+  display: flex;
+  flex-direction: column;
+  padding: calc(var(--sat) + 16px) 16px calc(var(--sab) + 20px) 16px;
+  overflow-y: auto;
+}
+
+.focused-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.focused-exercise-title {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--text-main);
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.focused-set-indicator {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  margin-bottom: 24px;
+}
+
+.focused-inputs-card {
+  background-color: var(--bg-surface-1);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 20px 16px;
+  margin-bottom: 24px;
+}
+
+.focused-input-group {
+  margin-bottom: 16px;
+}
+
+.focused-input-label {
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+.focused-btn-log {
+  min-height: 64px;
+  font-size: 1.35rem;
+  font-weight: 900;
+  box-shadow: 0 4px 20px rgba(0, 230, 118, 0.4);
+}
+
+/* ==========================================================
+   VISTA: PROGRESO Y ANALÍTICA
+   ========================================================== */
+.progress-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.metric-card {
+  background-color: var(--bg-surface-1);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 12px;
+}
+
+.metric-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.metric-value {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--text-main);
+  margin-top: 4px;
+  font-variant-numeric: tabular-nums;
+}
+
+.metric-sub {
+  font-size: 0.75rem;
+  color: var(--accent-primary);
+  margin-top: 2px;
+}
+
+/* Barras semanales de volumen por músculo */
+.volume-bar-row {
+  margin-bottom: 14px;
+}
+
+.volume-bar-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.volume-bar-track {
+  height: 12px;
+  background-color: var(--bg-surface-2);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Rango objetivo (10-20 series) marcado en la barra */
+.volume-target-zone {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 40%;
+  right: 20%;
+  background-color: rgba(255, 255, 255, 0.06);
+  border-left: 1px dashed rgba(255, 255, 255, 0.2);
+  border-right: 1px dashed rgba(255, 255, 255, 0.2);
+}
+
+.volume-bar-fill {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.3s ease;
+}
+
+.volume-bar-fill.status-below { background-color: #ffb300; }
+.volume-bar-fill.status-optimal { background-color: #00e676; }
+.volume-bar-fill.status-above { background-color: #ff5252; }
+
+/* SVG Chart wrapper */
+.chart-container {
+  width: 100%;
+  background-color: var(--bg-surface-1);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.chart-svg {
+  width: 100%;
+  height: 180px;
+  overflow: visible;
+}
+
+/* ==========================================================
+   VISTA: MAPA DE CALOR CORPORAL (BODY HEATMAP)
+   ========================================================== */
+.heatmap-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--bg-surface-1);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.heatmap-svg-wrapper {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  width: 100%;
+  max-width: 360px;
+}
+
+.heatmap-figure {
+  width: 50%;
+  height: auto;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+}
+
+.heatmap-muscle-path {
+  cursor: pointer;
+  transition: opacity 0.15s ease, filter 0.15s ease;
+}
+
+.heatmap-muscle-path:hover,
+.heatmap-muscle-path:active {
+  filter: brightness(1.3);
+}
+
+.heatmap-legend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.heatmap-legend-gradient {
+  width: 120px;
+  height: 10px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #1e293b, #ffb300, #00e676, #00e5ff);
+}
+
+/* ==========================================================
+   VISTA: RUTINAS / PLANTILLAS
+   ========================================================== */
+.routine-card {
+  background-color: var(--bg-surface-1);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  margin-bottom: 14px;
+}
+
+.routine-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.routine-exercise-list {
+  list-style: none;
+  margin: 10px 0;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.routine-exercise-item {
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ==========================================================
+   VISTA: AJUSTES (SETTINGS)
+   ========================================================== */
+.settings-group {
+  background-color: var(--bg-surface-1);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.settings-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.settings-item:last-child {
+  border-bottom: none;
+}
+
+.settings-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.settings-sublabel {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.settings-select {
+  background-color: var(--bg-surface-2);
+  color: var(--text-main);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  outline: none;
+}
+
+.ios-notice-card {
+  background-color: rgba(255, 179, 0, 0.08);
+  border: 1px solid rgba(255, 179, 0, 0.3);
+  border-radius: var(--radius-lg);
+  padding: 14px;
+  margin-bottom: 16px;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: #ffecb3;
+}

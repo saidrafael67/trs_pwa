@@ -1,0 +1,13 @@
+{
+  "name": "tracker-pwa",
+  "version": "1.0.0",
+  "description": "Tracker - PWA offline de seguimiento de entrenamiento de fuerza para iPhone",
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/e1rm.test.js test/plates.test.js test/progression.test.js test/volume.test.js",
+    "icons": "node icons/generate-icons.js"
+  },
+  "keywords": ["pwa", "gym", "fitness", "offline", "vanilla"],
+  "author": "Antigravity",
+  "license": "MIT"
+}

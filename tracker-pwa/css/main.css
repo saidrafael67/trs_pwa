@@ -1,0 +1,199 @@
+/* CSS Principal - Fuerza PWA
+   Tema: Oscuro alto contraste, minimalista, optimizado para iPhone OLED y uso con manos sudadas */
+
+:root {
+  /* Paleta base de alto contraste */
+  --bg-app: #090b0e;
+  --bg-surface-1: #12161f;
+  --bg-surface-2: #1a202c;
+  --bg-surface-3: #242c3d;
+  --border-subtle: #2d3748;
+  --border-focus: #4a5568;
+
+  /* Colores de acento e intensidad */
+  --accent-primary: #00e676; /* Verde neón para acción principal / series efectivas */
+  --accent-primary-text: #05200f;
+  --accent-secondary: #00e5ff; /* Cyan para marcas y volumen secundario */
+  --accent-warning: #ffb300; /* Ámbar para temporizador / advertencias */
+  --accent-danger: #ff5252; /* Rojo para borrar / descarte */
+  --accent-warmup: #90a4ae; /* Gris claro para calentamiento */
+
+  /* Tipografía y textos */
+  --text-main: #ffffff;
+  --text-secondary: #cbd5e1;
+  --text-muted: #8090a8;
+  --font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+
+  /* Tamaños táctiles (mínimo 48px para uso fácil en gym) */
+  --touch-target-min: 48px;
+  --touch-target-lg: 56px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+
+  /* Espaciados y Safe Area Insets para iPhone */
+  --sat: env(safe-area-inset-top, 0px);
+  --sab: env(safe-area-inset-bottom, 0px);
+  --sal: env(safe-area-inset-left, 0px);
+  --sar: env(safe-area-inset-right, 0px);
+
+  --nav-height: 64px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+/* Permitir selección y edición en inputs y textos editables */
+input, textarea, [contenteditable="true"] {
+  user-select: text;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  font-family: var(--font-family);
+  font-size: 16px; /* Evita auto-zoom en iOS Safari */
+  line-height: 1.4;
+  overflow: hidden;
+  position: fixed;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  height: 100dvh; /* Dynamic viewport height */
+  padding-top: var(--sat);
+  padding-bottom: calc(var(--sab) + var(--nav-height));
+  padding-left: var(--sal);
+  padding-right: var(--sar);
+  position: relative;
+  background-color: var(--bg-app);
+}
+
+/* Contenedor principal scrollable */
+.content-area {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding: 16px 14px 80px 14px;
+}
+
+/* Encabezado superior */
+.app-header {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  background-color: var(--bg-surface-1);
+  border-bottom: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+}
+
+.header-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-title .logo-badge {
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  color: #000;
+  font-size: 0.75rem;
+  font-weight: 900;
+  padding: 2px 7px;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+
+/* Barra de navegación inferior (Bottom Tab Bar) */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: calc(var(--nav-height) + var(--sab));
+  padding-bottom: var(--sab);
+  background-color: var(--bg-surface-1);
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 100;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: var(--touch-target-min);
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  gap: 4px;
+  cursor: pointer;
+  transition: color 0.15s ease, transform 0.1s ease;
+}
+
+.nav-item.active {
+  color: var(--accent-primary);
+}
+
+.nav-item svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 2.2;
+}
+
+.nav-item:active {
+  transform: scale(0.92);
+}
+
+/* Banner de actualización de Service Worker */
+.update-banner {
+  display: none;
+  background: linear-gradient(90deg, #1e293b, #0f172a);
+  border: 1px solid var(--accent-primary);
+  color: var(--text-main);
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  margin-bottom: 14px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.update-banner.visible {
+  display: flex;
+}
+
+.update-banner button {
+  background-color: var(--accent-primary);
+  color: var(--accent-primary-text);
+  border: none;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  min-height: 40px;
+}
